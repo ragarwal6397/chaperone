@@ -1,0 +1,7 @@
+{
+  "name": "RideUsher",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
