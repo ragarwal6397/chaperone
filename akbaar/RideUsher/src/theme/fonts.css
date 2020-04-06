@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Sassoon";
+  font-style: normal;
+  font-weight: normal;
+  src: "../assets/fonts/sassoon/Sassoon_Regular.ttf";
+}
+
+@font-face {
+  font-family: "Sassoon";
+  font-style: normal;
+  font-weight: bold;
+  src: "../assets/fonts/sassoon/Sassoon_Regular_Bold.ttf";
+}
+
+@font-face {
+  font-family: "Sassoon";
+  font-style: italic;
+  font-weight: normal;
+  src: "../assets/fonts/sassoon/Sassoon_Regular_Italic.ttf";
+}
