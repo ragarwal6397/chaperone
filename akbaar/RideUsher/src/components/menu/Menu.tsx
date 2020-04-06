@@ -9,7 +9,16 @@ import {
 } from "@ionic/react";
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import { heartOutline, heartSharp } from "ionicons/icons";
+import {
+  homeOutline,
+  homeSharp,
+  heartOutline,
+  heartSharp,
+  informationCircleOutline,
+  informationCircleSharp,
+  mailOutline,
+  mailSharp,
+} from "ionicons/icons";
 import "./Menu.css";
 
 interface MenuProps extends RouteComponentProps {
@@ -25,22 +34,28 @@ interface AppPage {
 
 const appPages: AppPage[] = [
   {
-    title: "OptionA",
-    url: "/page/OptionA",
+    title: "Home",
+    url: "/page/Home",
+    iosIcon: homeOutline,
+    mdIcon: homeSharp,
+  },
+  {
+    title: "Donate",
+    url: "/page/Donate",
     iosIcon: heartOutline,
     mdIcon: heartSharp,
   },
   {
-    title: "OptionB",
-    url: "/page/OptionB",
-    iosIcon: heartOutline,
-    mdIcon: heartSharp,
+    title: "About RideUsher",
+    url: "/page/AboutRideUsher",
+    iosIcon: informationCircleOutline,
+    mdIcon: informationCircleSharp,
   },
   {
-    title: "OptionC",
-    url: "/page/OptionC",
-    iosIcon: heartOutline,
-    mdIcon: heartSharp,
+    title: "Contact Us",
+    url: "/page/ContactUs",
+    iosIcon: mailOutline,
+    mdIcon: mailSharp,
   },
 ];
 
