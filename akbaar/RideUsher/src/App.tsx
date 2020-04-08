@@ -37,13 +37,13 @@ const App: React.FC = () => {
               path="/page/:name"
               render={(props) => {
                 setSelectedPage(props.match.params.name);
-                return <LandingPage {...props} />;
+                return <LandingPage name={props.match.params.name} />;
               }}
               exact={true}
             />
             <Route
               path="/"
-              render={() => <Redirect to="/page/OptionA" />}
+              render={() => <Redirect to="/page/Reviews" />}
               exact={true}
             />
           </IonRouterOutlet>

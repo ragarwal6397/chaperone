@@ -4,35 +4,43 @@ import {
   IonHeader,
   IonMenuButton,
   IonPage,
-  IonTitle,
+  IonButton,
+  IonIcon,
   IonToolbar,
 } from "@ionic/react";
+import { personCircleOutline } from "ionicons/icons";
 import React from "react";
-import { RouteComponentProps } from "react-router";
+import _ from "lodash";
 import ExploreContainer from "../../components/explore-container/ExploreContainer";
 import "./LandingPage.css";
+import { AppPageList } from "../../constants/AppPageList";
 
-const LandingPage: React.FC<RouteComponentProps<{ name: string }>> = ({
-  match,
-}) => {
+interface PageProps {
+  name: string;
+}
+
+const LandingPage: React.FC<PageProps> = ({ name }) => {
+  const page = _.find(AppPageList, (obj) => {
+    return obj.partialUrl === name;
+  });
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonMenuButton />
+            <IonMenuButton color="dark" />
           </IonButtons>
-          <IonTitle>{match.params.name}</IonTitle>
+          <IonButtons slot="end">
+            <IonButton color="dark">
+              <IonIcon slot="icon-only" icon={personCircleOutline} />
+            </IonButton>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{match.params.name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name={match.params.name} />
+        <ExploreContainer name={page?.title} />
       </IonContent>
     </IonPage>
   );

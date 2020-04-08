@@ -2,13 +2,13 @@ import React from "react";
 import "./ExploreContainer.css";
 
 interface ContainerProps {
-  name: string;
+  name?: string;
 }
 
 const ExploreContainer: React.FC<ContainerProps> = ({ name }) => {
   return (
     <div className="container">
-      <strong>{name}</strong>
+      <strong>{name || ""}</strong>
       <p>
         Explore{" "}
         <a
