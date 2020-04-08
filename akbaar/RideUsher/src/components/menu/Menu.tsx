@@ -6,7 +6,10 @@ import {
   IonList,
   IonMenu,
   IonMenuToggle,
+  IonListHeader,
+  IonButton,
 } from "@ionic/react";
+import { closeOutline } from "ionicons/icons";
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import "./Menu.css";
@@ -20,7 +23,15 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-        <IonList id="inbox-list">
+        <IonListHeader>
+          <IonMenuToggle autoHide={false}>
+            <IonButton color="dark">
+              <IonIcon slot="icon-only" icon={closeOutline} />
+            </IonButton>
+          </IonMenuToggle>
+          <IonLabel>RideUsher</IonLabel>
+        </IonListHeader>
+        <IonList>
           {AppPageList.map((page: AppPageInterface, index: number) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
