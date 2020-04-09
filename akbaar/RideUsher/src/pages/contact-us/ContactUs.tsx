@@ -10,20 +10,12 @@ import {
 } from "@ionic/react";
 import { personCircleOutline } from "ionicons/icons";
 import React from "react";
-import _ from "lodash";
 import ExploreContainer from "../../components/explore-container/ExploreContainer";
-import "./LandingPage.css";
-import { AppPageList } from "../../constants/AppPageList";
+import "./ContactUs.css";
 
-interface PageProps {
-  name: string;
-}
+interface ContactUsProps {}
 
-const LandingPage: React.FC<PageProps> = ({ name }) => {
-  const page = _.find(AppPageList, (obj) => {
-    return obj.partialUrl === name;
-  });
-
+const ContactUs: React.FC<ContactUsProps> = () => {
   return (
     <IonPage>
       <IonHeader>
@@ -40,10 +32,10 @@ const LandingPage: React.FC<PageProps> = ({ name }) => {
       </IonHeader>
 
       <IonContent>
-        <ExploreContainer name={page?.title} />
+        <ExploreContainer name={"Contact Us"} />
       </IonContent>
     </IonPage>
   );
 };
 
-export default LandingPage;
+export default ContactUs;

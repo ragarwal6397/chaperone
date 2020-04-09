@@ -8,37 +8,48 @@ import {
   mailOutline,
   mailSharp,
 } from "ionicons/icons";
+import React from "react";
 
-export interface AppPageInterface {
+import AboutRideUsher from "../pages/about-ride-usher/AboutRideUsher";
+import ContactUs from "../pages/contact-us/ContactUs";
+import Donate from "../pages/donate/Donate";
+import SearchReviews from "../pages/search-reviews/SearchReviews";
+
+export interface MenuListInterface {
   title: string;
   partialUrl: string;
   iosIcon: string;
   mdIcon: string;
+  component: React.FunctionComponent;
 }
 
-export const AppPageList: AppPageInterface[] = [
+export const MenuList: MenuListInterface[] = [
   {
     title: "Search Reviews",
-    partialUrl: "Reviews",
+    partialUrl: "SearchReviews",
     iosIcon: searchOutline,
     mdIcon: searchSharp,
+    component: SearchReviews,
   },
   {
     title: "Donate",
     partialUrl: "Donate",
     iosIcon: heartOutline,
     mdIcon: heartSharp,
+    component: Donate,
   },
   {
     title: "About RideUsher",
     partialUrl: "AboutRideUsher",
     iosIcon: informationCircleOutline,
     mdIcon: informationCircleSharp,
+    component: AboutRideUsher,
   },
   {
     title: "Contact Us",
     partialUrl: "ContactUs",
     iosIcon: mailOutline,
     mdIcon: mailSharp,
+    component: ContactUs,
   },
 ];

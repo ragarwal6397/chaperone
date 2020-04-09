@@ -13,7 +13,7 @@ import { closeOutline } from "ionicons/icons";
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import "./Menu.css";
-import { AppPageInterface, AppPageList } from "../../constants/AppPageList";
+import { MenuListInterface, MenuList } from "../../constants/MenuList";
 
 interface MenuProps extends RouteComponentProps {
   selectedPage: string;
@@ -32,7 +32,7 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
           <IonLabel>RideUsher</IonLabel>
         </IonListHeader>
         <IonList>
-          {AppPageList.map((page: AppPageInterface, index: number) => {
+          {MenuList.map((page: MenuListInterface, index: number) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
                 <IonItem
