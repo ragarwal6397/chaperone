@@ -12,14 +12,18 @@ import {
 import { closeOutline } from "ionicons/icons";
 import React from "react";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "./Menu.css";
-import { MenuListInterface, MenuList } from "../../constants/MenuList";
+import { MenuListInterface, MenuList } from "../../../constants/MenuList";
+import { actions } from "../../../store";
 
 interface MenuProps extends RouteComponentProps {
   selectedPage: string;
 }
 
 const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
+  const dispatch = useDispatch();
+
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
@@ -41,6 +45,9 @@ const Menu: React.FunctionComponent<MenuProps> = ({ selectedPage }) => {
                   routerDirection="none"
                   lines="none"
                   detail={false}
+                  onClick={() => {
+                    dispatch(actions.ui.updateMenuOption(page.partialUrl));
+                  }}
                 >
                   <IonIcon slot="start" icon={page.iosIcon} />
                   <IonLabel>{page.title}</IonLabel>

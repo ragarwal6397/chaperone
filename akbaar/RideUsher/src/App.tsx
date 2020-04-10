@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { IonApp, IonRouterOutlet, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -20,35 +21,30 @@ import "@ionic/react/css/flex-utils.css";
 import "@ionic/react/css/display.css";
 
 /* Theme variables */
-import "./theme/variables.css";
+import "./ui/theme/variables.css";
 
 /* Components */
-import Menu from "./components/menu/Menu";
+import Menu from "./ui/components/menu/Menu";
 
 /* Constants */
 import { MenuListInterface, MenuList } from "./constants/MenuList";
 
+import { RootState } from "./store/";
+
 const App: React.FC = () => {
-  const [selectedPage, setSelectedPage] = useState("");
+  const menuOption = useSelector((state: RootState) => state.ui.menuOptionName);
 
   return (
     <IonApp>
       <IonReactRouter>
         <IonSplitPane contentId="main">
-          <Menu selectedPage={selectedPage} />
+          <Menu selectedPage={menuOption} />
           <IonRouterOutlet id="main">
             {MenuList.map((page: MenuListInterface) => {
               const ComponentName = page.component;
               const url = `/page/${page.partialUrl}`;
               return (
-                <Route
-                  path={url}
-                  render={() => {
-                    setSelectedPage(page.partialUrl);
-                    return <ComponentName />;
-                  }}
-                  exact={true}
-                />
+                <Route path={url} component={ComponentName} exact={true} />
               );
             })}
             <Route

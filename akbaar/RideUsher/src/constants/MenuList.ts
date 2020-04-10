@@ -10,10 +10,10 @@ import {
 } from "ionicons/icons";
 import React from "react";
 
-import AboutRideUsher from "../pages/about-ride-usher/AboutRideUsher";
-import ContactUs from "../pages/contact-us/ContactUs";
-import Donate from "../pages/donate/Donate";
-import SearchReviews from "../pages/search-reviews/SearchReviews";
+import AboutRideUsher from "../ui/pages/about-ride-usher/AboutRideUsher";
+import ContactUs from "../ui/pages/contact-us/ContactUs";
+import Donate from "../ui/pages/donate/Donate";
+import SearchReviews from "../ui/pages/search-reviews/SearchReviews";
 
 export interface MenuListInterface {
   title: string;
@@ -23,6 +23,7 @@ export interface MenuListInterface {
   component: React.FunctionComponent;
 }
 
+export const DEFAULT_MENU_OPTION = "SearchReviews";
 export const MenuList: MenuListInterface[] = [
   {
     title: "Search Reviews",
