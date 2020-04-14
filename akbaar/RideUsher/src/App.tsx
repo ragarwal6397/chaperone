@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IonApp, IonRouterOutlet, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Plugins } from "@capacitor/core";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -31,8 +32,14 @@ import { MenuListInterface, MenuList } from "./constants/MenuList";
 
 import { RootState } from "./store/";
 
+const { SplashScreen } = Plugins;
+
 const App: React.FC = () => {
   const menuOption = useSelector((state: RootState) => state.ui.menuOptionName);
+
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
 
   return (
     <IonApp>
@@ -40,20 +47,25 @@ const App: React.FC = () => {
         <IonSplitPane contentId="main">
           <Menu selectedPage={menuOption} />
           <IonRouterOutlet id="main">
-            {MenuList.map((page: MenuListInterface) => {
+            {MenuList.map((page: MenuListInterface, index: number) => {
               const ComponentName = page.component;
               const url = `/page/${page.partialUrl}`;
               return (
-                <Route path={url} component={ComponentName} exact={true} />
+                <Route
+                  path={url}
+                  component={ComponentName}
+                  exact={true}
+                  key={index}
+                />
               );
             })}
-            <Route
-              path="/"
-              render={() => <Redirect to="/page/SearchReviews" />}
-              exact={true}
-            />
           </IonRouterOutlet>
         </IonSplitPane>
+        <Route
+          path="/"
+          render={() => <Redirect to="/page/SearchReviews" />}
+          exact={true}
+        />
       </IonReactRouter>
     </IonApp>
   );
