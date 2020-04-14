@@ -1,0 +1,75 @@
+ion-grid {
+  text-align: center;
+}
+
+ion-row.pageTitle {
+  padding-top: 75px;
+}
+ion-row.pageTitle ion-text {
+  color: #ea5b00;
+  font-style: italic;
+  font-size: 58px;
+  font-weight: 600;
+}
+
+ion-row.pageSubTitle {
+  margin-top: -10px;
+}
+ion-row.pageSubTitle ion-text {
+  color: #ea5b00;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+ion-row.pageActionText {
+  padding-top: 150px;
+}
+ion-row.pageActionText ion-text {
+  color: #445870;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+ion-row.numberInput {
+  padding-top: 25px;
+}
+ion-row.numberInput ion-input {
+  border: 1px solid #e0e7ee;
+  border-radius: 4px;
+}
+
+ion-row.codeInput {
+  padding-top: 5px;
+}
+ion-row.codeInput ion-input {
+  border: 1px solid #e0e7ee;
+  border-radius: 4px;
+}
+
+ion-row.pageActionButton {
+  padding-top: 5px;
+}
+ion-row.pageActionButton ion-button {
+  --background: #ea5b00;
+  --background-activated: var(--ion-color-success-shade);
+  font-size: 18px;
+  font-weight: 300;
+  --border-color: #979797;
+  --border-style: solid;
+  --border-width: 1px;
+  --border-radius: 4px;
+}
+
+ion-row.pageFooterText {
+  padding-top: 200px;
+}
+ion-row.pageFooterText ion-text {
+  color: #445870;
+  font-size: 14px;
+}
+
+ion-row.pageFooterTextTerms ion-text {
+  color: #445870;
+  font-size: 14px;
+}

@@ -27,6 +27,9 @@ import "./ui/theme/variables.css";
 /* Components */
 import Menu from "./ui/components/menu/Menu";
 
+/* Pages */
+import Login from "./ui/pages/login/Login";
+
 /* Constants */
 import { MenuListInterface, MenuList } from "./constants/MenuList";
 
@@ -61,9 +64,10 @@ const App: React.FC = () => {
             })}
           </IonRouterOutlet>
         </IonSplitPane>
+        <Route path="/page/Login" component={Login} exact={true} />
         <Route
           path="/"
-          render={() => <Redirect to="/page/SearchReviews" />}
+          render={() => <Redirect to="/page/Login" />}
           exact={true}
         />
       </IonReactRouter>
