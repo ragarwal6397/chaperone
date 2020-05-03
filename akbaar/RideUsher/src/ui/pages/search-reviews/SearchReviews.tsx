@@ -7,15 +7,25 @@ import {
   IonButton,
   IonIcon,
   IonToolbar,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonText,
+  IonSelect,
+  IonSelectOption,
+  IonInput,
 } from "@ionic/react";
-import { personCircleOutline } from "ionicons/icons";
-import React from "react";
-import ExploreContainer from "../../components/explore-container/ExploreContainer";
+import { personCircleOutline, helpCircleOutline } from "ionicons/icons";
+import React, { useState } from "react";
+import { StateList } from "../../../constants/StateList";
 import "./SearchReviews.css";
 
 interface SearchReviewsProps {}
 
 const SearchReviews: React.FC<SearchReviewsProps> = () => {
+  const [licensePlate, setLicensePlate] = useState<string>("");
+  const [licenseState, setLicenseState] = useState<string>("");
+
   return (
     <IonPage>
       <IonHeader>
@@ -32,7 +42,66 @@ const SearchReviews: React.FC<SearchReviewsProps> = () => {
       </IonHeader>
 
       <IonContent>
-        <ExploreContainer name={"Search Reviews"} />
+        <IonGrid>
+          <IonRow className="pageTitleLine1">
+            <IonCol size="10" size-md offset="1">
+              <IonText>Welcome!</IonText>
+            </IonCol>
+          </IonRow>
+
+          <IonRow className="pageTitleLine2">
+            <IonCol size="10" size-md offset="1">
+              <IonText>Tell us about your ride</IonText>
+            </IonCol>
+          </IonRow>
+
+          <IonRow className="licenseEntry">
+            <IonCol size="3" size-md offset="1">
+              <IonSelect
+                className="licenseStateSelect"
+                value={licenseState}
+                placeholder="State"
+                okText="Select"
+                cancelText="Dismiss"
+                interface="popover"
+                onIonChange={(e) => setLicenseState(e.detail.value)}
+              >
+                {StateList.map((state, idx) => (
+                  <IonSelectOption key={idx} value={state}>
+                    {state}
+                  </IonSelectOption>
+                ))}
+              </IonSelect>
+            </IonCol>
+            <IonCol size="6" size-md>
+              <IonInput
+                className="licensePlateInput"
+                type="text"
+                inputMode="text"
+                value={licensePlate}
+                placeholder="Plate Number"
+                onIonChange={(e) => setLicensePlate(e.detail.value!)}
+              ></IonInput>
+            </IonCol>
+            <IonCol size="1" size-md>
+              <IonButton className="helpButton" fill={"clear"}>
+                <IonIcon slot="icon-only" icon={helpCircleOutline} />
+              </IonButton>
+            </IonCol>
+          </IonRow>
+
+          <IonRow>
+            <IonCol size="6" size-md offset="3">
+              <IonButton
+                className="searchReviewsButton"
+                fill={"outline"}
+                expand={"block"}
+              >
+                Search Reviews
+              </IonButton>
+            </IonCol>
+          </IonRow>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

@@ -1,3 +1,31 @@
 ion-content ion-toolbar {
   --background: transparent;
 }
+
+ion-select.licenseStateSelect {
+  --placeholder-color: #445870;
+  --placeholder-opacity: 100;
+  --padding-end: 20px;
+  border-color: #979797;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+ion-input.licensePlateInput {
+  --placeholder-color: #445870;
+  --placeholder-opacity: 100;
+  border-color: #979797;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+}
+
+ion-button.helpButton {
+  color: #445870;
+}
+
+ion-button.searchReviewsButton {
+  --border-color: #ea5b00;
+  color: #ea5b00;
+}
