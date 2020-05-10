@@ -48,7 +48,7 @@ ion-row.codeInput ion-input {
 }
 
 ion-row.pageActionButton {
-  padding-top: 5px;
+  padding-top: 5%;
 }
 ion-row.pageActionButton ion-button {
   --background: #ea5b00;
@@ -59,6 +59,9 @@ ion-row.pageActionButton ion-button {
   --border-style: solid;
   --border-width: 1px;
   --border-radius: 4px;
+}
+ion-row.pageActionButton ion-spinner {
+  --color: #ea5b00;
 }
 
 ion-row.pageFooterText {

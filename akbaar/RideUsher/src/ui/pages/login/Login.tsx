@@ -9,6 +9,7 @@ import {
   IonButton,
   IonInput,
   IonText,
+  IonSpinner,
 } from "@ionic/react";
 import { Redirect } from "react-router";
 
@@ -20,6 +21,7 @@ const Login: React.FC<LoginProps> = () => {
   const [code, setCode] = useState<string>("");
   const [codeRequested, setCodeRequested] = useState<boolean>(false);
   const [loginComplete, setLoginComplete] = useState<boolean>(false);
+  const [isFormSubmitting, setFormIsSubmitting] = useState<boolean>(false);
 
   const pageActionText = codeRequested
     ? "We've sent you a code. Please enter it here"
@@ -93,6 +95,7 @@ const Login: React.FC<LoginProps> = () => {
                     value={formatPhoneNumber(phoneNumber)}
                     placeholder="Phone Number"
                     onIonChange={(e) => updatePhoneNumber(e.detail.value!)}
+                    disabled={isFormSubmitting}
                   ></IonInput>
                 </IonCol>
               </IonRow>
@@ -106,13 +109,19 @@ const Login: React.FC<LoginProps> = () => {
                       maxlength={CODE_LENGTH}
                       placeholder="7-digit code"
                       onIonChange={(e) => updateCode(e.detail.value!)}
+                      disabled={isFormSubmitting}
                     ></IonInput>
                   </IonCol>
                 </IonRow>
               )}
               <IonRow className="pageActionButton">
                 <IonCol size="6" size-md offset="3">
-                  <IonButton onClick={handleSubmit}>{buttonCTAText}</IonButton>
+                  {!isFormSubmitting && (
+                    <IonButton onClick={handleSubmit}>
+                      {buttonCTAText}
+                    </IonButton>
+                  )}
+                  {isFormSubmitting && <IonSpinner name="dots" />}
                 </IonCol>
               </IonRow>
               <IonRow className="pageFooterText">
