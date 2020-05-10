@@ -3,7 +3,7 @@ ion-grid {
 }
 
 ion-row.pageTitle {
-  padding-top: 75px;
+  padding-top: 25%;
 }
 ion-row.pageTitle ion-text {
   color: #ea5b00;
@@ -23,7 +23,7 @@ ion-row.pageSubTitle ion-text {
 }
 
 ion-row.pageActionText {
-  padding-top: 150px;
+  padding-top: 20%;
 }
 ion-row.pageActionText ion-text {
   color: #445870;
@@ -40,7 +40,7 @@ ion-row.numberInput ion-input {
 }
 
 ion-row.codeInput {
-  padding-top: 5px;
+  padding-top: 2%;
 }
 ion-row.codeInput ion-input {
   border: 1px solid #e0e7ee;
@@ -62,13 +62,15 @@ ion-row.pageActionButton ion-button {
 }
 
 ion-row.pageFooterText {
-  padding-top: 200px;
+  padding-top: 10%;
 }
 ion-row.pageFooterText ion-text {
   color: #445870;
   font-size: 14px;
 }
-
+ion-row.pageFooterTextTerms {
+  padding-bottom: 10%;
+}
 ion-row.pageFooterTextTerms ion-text {
   color: #445870;
   font-size: 14px;

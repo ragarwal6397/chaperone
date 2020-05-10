@@ -3,7 +3,7 @@ ion-content ion-toolbar {
 }
 
 ion-row.pageTitleLine1 {
-  padding-top: 100px;
+  padding-top: 25%;
 }
 ion-row.pageTitleLine1 ion-text {
   color: #445870;
@@ -19,7 +19,7 @@ ion-row.pageTitleLine2 ion-text {
 }
 
 ion-row.licenseEntry {
-  padding-top: 50px;
+  padding-top: 10%;
 }
 
 ion-select.licenseStateSelect {
@@ -50,7 +50,7 @@ ion-button.helpButton {
 }
 
 ion-row.searchReviewsButtonContainer {
-  padding-top: 15px;
+  padding-top: 5%;
 }
 ion-button.searchReviewsButton {
   --border-color: #ea5b00;

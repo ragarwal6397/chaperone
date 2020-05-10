@@ -56,7 +56,7 @@ const SearchReviews: React.FC<SearchReviewsProps> = () => {
           </IonRow>
 
           <IonRow className="licenseEntry">
-            <IonCol size="3" size-md offset="1">
+            <IonCol size="4" size-sm offset="1">
               <IonSelect
                 className="licenseStateSelect"
                 value={licenseState}
@@ -73,7 +73,7 @@ const SearchReviews: React.FC<SearchReviewsProps> = () => {
                 ))}
               </IonSelect>
             </IonCol>
-            <IonCol size="6" size-md>
+            <IonCol size="5" size-sm>
               <IonInput
                 className="licensePlateInput"
                 type="text"
@@ -83,7 +83,7 @@ const SearchReviews: React.FC<SearchReviewsProps> = () => {
                 onIonChange={(e) => setLicensePlate(e.detail.value!)}
               ></IonInput>
             </IonCol>
-            <IonCol size="1" size-md className="helpButtonContainer">
+            <IonCol size="1" size-sm className="helpButtonContainer">
               <IonButton className="helpButton" fill={"clear"}>
                 <IonIcon slot="icon-only" icon={helpCircleOutline} />
               </IonButton>
