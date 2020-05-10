@@ -83,14 +83,14 @@ const SearchReviews: React.FC<SearchReviewsProps> = () => {
                 onIonChange={(e) => setLicensePlate(e.detail.value!)}
               ></IonInput>
             </IonCol>
-            <IonCol size="1" size-md>
+            <IonCol size="1" size-md className="helpButtonContainer">
               <IonButton className="helpButton" fill={"clear"}>
                 <IonIcon slot="icon-only" icon={helpCircleOutline} />
               </IonButton>
             </IonCol>
           </IonRow>
 
-          <IonRow>
+          <IonRow className="searchReviewsButtonContainer">
             <IonCol size="6" size-md offset="3">
               <IonButton
                 className="searchReviewsButton"
