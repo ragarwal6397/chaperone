@@ -25,7 +25,8 @@ SECRET_KEY = '1sydq^uc%8ize=dp&^q5s4#f#k$i&55_t%%&a_z%2&w7x!&pod'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# TODO (Rajat): Modify for production
+ALLOWED_HOSTS = ['32817cf8.ngrok.io', 'localhost']
 
 
 # Application definition
@@ -41,13 +42,19 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'kavi.rate_limit_middleware.reverse_proxy'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+#Authentication backends
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 ROOT_URLCONF = 'birbal.urls'
@@ -85,6 +92,16 @@ DATABASES = {
     }
 }
 
+# CACHES
+# https://docs.djangoproject.com/en/dev/topics/cache/
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -118,8 +135,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# TODO(Rajat): Do this for production
+# SESSION_COOKIE_SECURE = True
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+SESSION_COOKIE_AGE = 5184000 # 60 days in seconds
+SESSION_COOKIE_HTTPONLY = True # Prevent client side javascript to access session cookie

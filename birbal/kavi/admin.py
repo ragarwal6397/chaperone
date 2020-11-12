@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import *
+from .models import Customer, ServiceProvider, Platform, Review
 
 # Register your models here.
-admin.site.register(User)
+admin.site.register(Customer)
 admin.site.register(ServiceProvider)
 admin.site.register(Platform)
 admin.site.register(Review)

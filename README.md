@@ -79,7 +79,6 @@
   4. Install other Django dependencies
 
       ```pip install django-model-utils```
-      ```pip install djangorestframework```
 
   3. Run migrations
 
@@ -98,3 +97,25 @@
       Enter username, email and password
       Run Server: ```python3 manage.py runserver```
       Navigate to ```localhost:8000/admin``` on a browser to access the admin console
+
+  6. Setup Twilio Library
+      ```curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash```
+      ```source ~/.bashrc```
+      ```nvm install --lts```
+      ```nvm use 12.18.2```
+      ```sudo apt-get install libsecret-1-dev```
+      ```npm install twilio-cli -g```
+      ```pip install twilio```
+
+  7. Setup Django RateLimit
+      ```pip install django-ratelimit```
+
+  8. Setup memcached
+      ```sudo apt-get install memcached```
+      Edit ```/etc/memcached.conf ```
+      Change memory usage to 1 GB from default of 64 GB:
+      ```# Set daemon to use 1 GB of memory (unit is MB)```
+      ```-m 1024```
+      Add the following setting. This will disable UDP for Memcached thus preventing it from being used as a reflector.
+      ```# Disable UDP for memcached```
+      ```-U 0```
